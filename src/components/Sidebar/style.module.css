@@ -1,0 +1,69 @@
+.sidebar {
+    background: #191919;
+    border-radius: 6px;
+    padding: 25px 24px 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+.menu_title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+
+.menu_list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menu_link {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #576067;
+    transition: all 0.2s ease 0s;
+    cursor: pointer;
+}
+
+.menu_link.active {
+    color: #8B57C6;
+}
+
+.menu_link:hover{
+    color: #fff;
+}
+
+.help_terms {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 115px;
+}
+
+.help_terms_link {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: #576067;
+    transition: all 0.2s ease 0s;
+}
+
+.help_terms_link:hover{
+    color: #fff;
+}
+
+.help_terms_link.underline {
+    text-decoration: underline;
+}

@@ -1,0 +1,99 @@
+.sale {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: #191919;
+    border-radius: 6px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.sale_info {
+    position: relative;
+    width: 100%;
+    height: 572px;
+}
+
+.info_text {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 74px;
+}
+
+.pre_title {
+    font-weight: 300;
+    font-size: 70px;
+    line-height: 85px;
+    text-align: center;
+    color: #6C3EB8;
+}
+
+.title {
+    font-weight: 300;
+    font-size: 150px;
+    line-height: 183px;
+    text-align: center;
+    color: #6C3EB8;
+}
+
+.see_more_btn {
+    width: 100%;
+    max-width: 138px;
+    height: 42px;
+    background: #6C3EB8;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
+    margin-top: 27px;
+    transition: all 0.2s ease 0s;
+}
+
+.see_more_btn:hover {
+    background: #FFFFFF;
+    color: #6C3EB8;
+}
+
+.sneaker {
+    position: absolute;
+    left: -30px;
+    bottom: 75px;
+}
+
+.gameboy {
+    position: absolute;
+    right: -20px;
+    bottom: -25px;
+    z-index: 1;
+}
+
+.sale_background {
+    position: relative;
+    width: 100%;
+}
+
+.background_img {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.background_text {
+    position: absolute;
+    bottom: 24px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #212123;
+    width: 100%;
+}
+
+.background_text span{
+    color: #6C3EB8;
+    font-weight: 700;
+}

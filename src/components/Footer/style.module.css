@@ -1,0 +1,41 @@
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 24px;
+    background: #191919;
+    border-radius: 6px;
+    margin: 20px 0 20px;
+}
+
+.copyright {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: #576067;
+}
+
+.copyright a {
+    color: #6C3EB8;
+    transition: all 0.2s ease 0s;
+}
+
+.copyright a:hover {
+    color: #576067;
+}
+
+.social_media {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.social_link path {
+    fill: #576067;
+    transition: all 0.2s ease 0s;
+}
+
+.social_link:hover path {
+    fill: #6C3EB8;
+}

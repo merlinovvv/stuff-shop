@@ -1,0 +1,113 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin: 20px 0;
+}
+
+.profile {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    transition: all 0.2s ease 0s;
+}
+
+.profile:hover .profile_name {
+    color: #fff;
+
+}
+
+.profile_avatar {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    background: #191919;
+}
+
+.profile_avatar svg {
+    position: relative;
+    left: 3px;
+    top: 5.5px;
+}
+
+.profile_name {
+    font-weight: 400;
+    font-size: 9px;
+    line-height: 11px;
+    color: #B8B8B8;
+    transition: all 0.2s ease 0s;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 303px;
+    width: 100%;
+    padding: 7px 10px;
+    background: #191919;
+    border-radius: 6px;
+    border: 1px solid #191919;
+    transition: all 0.2s ease 0s;
+}
+
+.search:hover {
+    border: 1px solid #B8B8B8;
+}
+
+.search:focus {
+    border: 1px solid #B8B8B8;
+}
+
+.search_input {
+    background-color: transparent;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 9px;
+    line-height: 11px;
+    color: #fff;
+    width: 100%;
+}
+
+.search_input::placeholder {
+    color: #B8B8B8;
+}
+
+.header_btns {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn_link {
+    position: relative;
+}
+
+.btn_link path{
+    transition: all 0.2s ease 0s;
+}
+
+.btn_link:hover path {
+    stroke: #6C3EB8;
+}
+
+.btn_link:hover .cart_img path {
+    fill: #6C3EB8;
+}
+
+.count {
+    display: block;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #8B57C6;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 9px;
+    line-height: 11px;
+    color: #F6F6F7;
+    text-align: center;
+    right: -3px;
+    bottom: 0;
+}
