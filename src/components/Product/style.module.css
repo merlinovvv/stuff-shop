@@ -12,7 +12,8 @@
 }
 
 .product_block:hover{
-    transform: translateY(-5px)
+    transform: translateY(-5px);
+    background: #2121237d;
 }
 
 .product_img{

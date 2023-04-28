@@ -1,0 +1,168 @@
+.product_card {
+    background: #191919;
+    border-radius: 6px;
+    padding: 22px 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    grid-area: 1 / 2 / 2 / 3;
+    gap: 30px;
+}
+
+.gallery {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 17px;
+    max-width: 485px;
+    width: 100%;
+}
+
+.selected_image {
+    border-radius: 6px;
+    max-width: 380px;
+    width: 100%;
+}
+
+.images_list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.image_product {
+    max-width: 91px;
+    border-radius: 6px;
+}
+
+.product_info {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+}
+
+.main_info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info_name {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #F6F6F7;
+}
+
+.info_price {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #F6F6F7;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #F6F6F7;
+    gap: 16px;
+}
+
+.option_name {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #576067;
+}
+
+.operations_btns {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn {
+    padding: 4px 8px;
+    background: #212123;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #F6F6F7;
+    transition: all 0.2s ease 0s;
+}
+
+.btn.active {
+    background: #6C3EB8;
+}
+
+.btn:hover {
+    background: #343436;
+}
+
+.desc {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #B8B8B8;
+}
+
+.info_btns {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info_btn {
+    background: #6C3EB8;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+    padding: 9px 20px;
+    transition: all 0.2s ease 0s;
+}
+
+.info_btn.disabled {
+    pointer-events: none;
+    background: #576067;
+    color: #B8B8B8;
+}
+
+.info_btn:hover {
+    background: #FFFFFF;
+    color: #6C3EB8;
+}
+
+.other_info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.count_people {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: right;
+    color: #576067;
+}
+
+.find_link {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: right;
+    text-decoration-line: underline;
+    color: #576067;
+    transition: all 0.3s ease 0s;
+}
+
+.find_link:hover{
+    color: #fff;
+}

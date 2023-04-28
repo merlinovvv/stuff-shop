@@ -7,6 +7,7 @@ import {
   Recommend,
   Sale,
   Footer,
+  ProductCard
 } from '../index';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <div className={style.main}>
           <Sidebar />
           <MainContent />
+          {/* <ProductCard/> */}
         </div>
         <ProductList title={'Trending'} />
         <Recommend />
