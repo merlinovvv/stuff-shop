@@ -5,4 +5,7 @@ export { default as ProductList } from './ProductList/ProductList';
 export { default as Recommend } from './Recommend/Recommend';
 export { default as Sale } from './Sale/Sale';
 export { default as Footer } from './Footer/Footer';
-export { default as ProductCard } from './ProductCard/ProductCard'
+export { default as ProductCard } from './ProductCard/ProductCard';
+export { default as Registration } from './Registration/Registration';
+export { default as ProductCatalog } from './ProductCatalog/ProductCatalog';
+export { default as Cart } from './Cart/Cart'

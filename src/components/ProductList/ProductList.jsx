@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './style.module.css'
-import Product from '../Product/Product';
+import ProductLink from '../ProductLink/ProductLink';
 
 function ProductList({title}) {
   return (
@@ -9,11 +9,11 @@ function ProductList({title}) {
             {title}
         </h3>
         <div className={style.product_list}>
-            <Product/>
-            <Product/>
-            <Product/>
-            <Product/>
-            <Product/>
+            <ProductLink/>
+            <ProductLink/>
+            <ProductLink/>
+            <ProductLink/>
+            <ProductLink/>
         </div>
         <button className={style.see_more_btn}>See more</button>
     </div>

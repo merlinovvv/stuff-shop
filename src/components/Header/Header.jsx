@@ -1,11 +1,11 @@
 import React from 'react';
 import style from './style.module.css';
 
-function Header() {
+function Header({toggleForm}) {
   return (
     <header className={style.header}>
       <img className={style.logo} src="img/logo.svg" alt="STAFF" />
-      <a href="/" className={style.profile}>
+      <div onClick={() => toggleForm(true)} href="/" className={style.profile}>
         <div className={style.profile_avatar}>
           <svg
             width="22"
@@ -27,7 +27,7 @@ function Header() {
           </svg>
         </div>
         <p className={style.profile_name}>Yana Tamkovich</p>
-      </a>
+      </div>
       <div className={style.search}>
         <svg
           width="13"

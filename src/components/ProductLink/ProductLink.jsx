@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './style.module.css';
 
-function Product() {
+function ProductLink() {
   return (
     <div className={style.product_block}>
       <img className={style.product_img} src="img/product_img.jpg" alt="" />
@@ -22,4 +22,4 @@ function Product() {
   );
 }
 
-export default Product;
+export default ProductLink;
