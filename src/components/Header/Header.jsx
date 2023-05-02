@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './style.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../utils/routes';
 import LOGO from '../../img/logo.svg';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,10 +8,11 @@ import { toggleForm } from '../../features/user/userSlice';
 
 function Header() {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const { currentUser } = useSelector(({ user }) => user);
 
   function handleClick() {
-    !currentUser && dispatch(toggleForm(true));
+    !currentUser ? dispatch(toggleForm(true)) : navigate(ROUTES.PROFILE);
   }
   return (
     <header className={style.header}>
