@@ -1,5 +1,8 @@
 import React from 'react';
 import style from './style.module.css';
+import BANNER from "../../img/sale_img.jpg";
+import SNEAKER from "../../img/sale_sneaker.png";
+import GAMEBOY from "../../img/sale_gameboy.png"
 
 function Sale() {
   return (
@@ -10,11 +13,11 @@ function Sale() {
           <h1 className={style.title}>SALE</h1>
           <button className={style.see_more_btn}>See more</button>
         </div>
-        <img className={style.sneaker} src="img/sale_sneaker.png" alt="" />
-        <img className={style.gameboy} src="img/sale_gameboy.png" alt="" />
+        <img className={style.sneaker} src={SNEAKER} alt="" />
+        <img className={style.gameboy} src={GAMEBOY} alt="" />
       </div>
       <div className={style.sale_background}>
-        <img className={style.background_img} src="img/sale_img.jpg" alt="" />
+        <img className={style.background_img} src={BANNER} alt="" />
         <p className={style.background_text}>save up to <span>50%</span> off</p>
       </div>
     </div>

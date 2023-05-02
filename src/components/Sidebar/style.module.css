@@ -6,6 +6,9 @@
     justify-content: space-between;
     flex-direction: column;
     grid-area: 1 / 1 / 2 / 2;
+    height: 430px;
+    max-width: 304px;
+    width: 100%;
 }
 
 .menu {
@@ -49,7 +52,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 115px;
 }
 
 .help_terms_link {

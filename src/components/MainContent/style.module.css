@@ -6,7 +6,8 @@
     background: #191919;
     border-radius: 6px;
     padding: 40px;
-    grid-area: 1 / 2 / 2 / 3;
+    width: 100%;
+    max-width: 950px;
 }
 
 .big_text {

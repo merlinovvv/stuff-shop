@@ -1,35 +1,25 @@
 import React, { useState } from 'react';
 import style from './style.module.css';
-
-const menu = [
-  'Computers',
-  'Clothes',
-  'Shoes',
-  'Furniture',
-  'Cosmetics',
-  'Travel',
-  'Automotive',
-];
+import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function Sidebar() {
-  const [selectLink, setSelectLink] = useState(0);
-
-  function onClickSelectLink(index) {
-    setSelectLink(index);   
-  }
+  const { list } = useSelector(({ categories }) => categories);
 
   return (
     <aside className={style.sidebar}>
       <div className={style.menu}>
         <h4 className={style.menu_title}>Categories</h4>
         <ul className={style.menu_list}>
-          {menu.map((link, index) => {
+          {list.map(({ id, name }, index) => {
             return (
-              <li
-                key={`${index}_${link}`}
-                onClick={() => onClickSelectLink(index)}
-                className={`${style.menu_link} ${selectLink === index ? style.active : ''}`}>
-                {link}
+              <li key={`${id}_${name}`}>
+                <NavLink
+                  className={ ({isActive}) => `${style.menu_link} ${isActive ? style.active : ''}`}
+                  key={`${index}_${id}`}
+                  to={`/categories/${id}`}>
+                  {name}
+                </NavLink>
               </li>
             );
           })}

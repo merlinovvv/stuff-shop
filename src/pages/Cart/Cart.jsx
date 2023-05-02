@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './style.module.css';
-import CartProduct from '../CartProduct/CartProduct';
+import { CartProduct } from '../../components/index';
 
 function Cart() {
   return (
@@ -8,10 +8,10 @@ function Cart() {
       <h2 className={style.title}>Your cart</h2>
 
       <div className={style.product_list}>
-        <CartProduct/>
-        <CartProduct/>
-        <CartProduct/>
-        <CartProduct/>
+        <CartProduct />
+        <CartProduct />
+        <CartProduct />
+        <CartProduct />
         {/* <p className={style.empty_cart}>Your cart is empty</p> */}
       </div>
       <div className={style.info}>

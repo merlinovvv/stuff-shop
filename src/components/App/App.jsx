@@ -1,11 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { getCategories } from '../../features/categories/categoriesSlice';
+import { getProducts } from '../../features/products/productsSlice';
 import style from './style.module.css';
+import AppRoutes from '../Routes/Routes';
 import {
   Header,
   Sidebar,
   MainContent,
   ProductList,
-  Recommend,
+  Categories,
   Sale,
   Footer,
   ProductCard,
@@ -23,22 +27,40 @@ function App() {
 
   document.body.style.overflow = registerIsOpen ? 'hidden' : 'visible';
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCategories());
+    dispatch(getProducts());
+  }, [dispatch]);
+
   return (
-    <div className={style.page}>
+    // <div className={style.page}>
+    //   <Registration toggleForm={toggleForm} registerIsOpen={registerIsOpen} />
+    //   <div className={style.container}>
+    //     <Header toggleForm={toggleForm} />
+    //     <div className={style.main}>
+    //       <Sidebar />
+    //       <MainContent />
+    //       {/* <ProductCard/> */}
+    //       {/* <Cart/> */}
+    //     </div>
+    //     <ProductList title={'Trending'} />
+    //     <Recommend />
+    //     <Sale />
+    //     <ProductList title={'Less than 100$'} />
+    //     {/* <ProductCatalog/> */}
+    //     <Footer />
+    //   </div>
+    // </div>
+    <div className={style.app}>
       <Registration toggleForm={toggleForm} registerIsOpen={registerIsOpen} />
       <div className={style.container}>
         <Header toggleForm={toggleForm} />
         <div className={style.main}>
           <Sidebar />
-          <MainContent />
-          {/* <ProductCard/> */}
-          {/* <Cart/> */}
+          <AppRoutes />
         </div>
-        <ProductList title={'Trending'} />
-        <Recommend />
-        <Sale />
-        <ProductList title={'Less than 100$'} />
-        {/* <ProductCatalog/> */}
         <Footer />
       </div>
     </div>

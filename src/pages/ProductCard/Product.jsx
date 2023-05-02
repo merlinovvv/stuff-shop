@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
 import style from './style.module.css';
-
-const productImages = {
-  imageUrl: [
-    'img/product_card_img.jpg',
-    'img/sale_img.jpg',
-    'img/recommend_img.jpg',
-    'img/product_card_img.jpg',
-    'img/product_card_img.jpg',
-  ],
-};
-
-function ProductCard() {
+import { useDispatch } from 'react-redux';
+import { addItemToCart } from '../../features/user/userSlice';
+function Product(item) {
+  const { title, images, description, price } = item;
+  const dispatch = useDispatch();
   const [selectImage, setSelectImage] = useState(0);
-  const images = productImages.imageUrl;
+  const [selectSize, setSelectsSize] = useState();
 
   function onClickSelectImage(index) {
     setSelectImage(index);
+  }
+
+  function onClickSelectsSize(index) {
+    setSelectsSize(index);
+  }
+
+  const SIZES = [4.5, 5, 5.5];
+
+  function addToCart() {
+    dispatch(addItemToCart(item));
   }
 
   return (
@@ -46,8 +49,8 @@ function ProductCard() {
       </div>
       <div className={style.product_info}>
         <div className={style.main_info}>
-          <h3 className={style.info_name}>Bouncing sneaker Hermès</h3>
-          <p className={style.info_price}>599$</p>
+          <h3 className={style.info_name}>{title}</h3>
+          <p className={style.info_price}>{price}$</p>
           <div className={style.option}>
             <p className={style.option_name}>Color:</p>
             <span>Blanc</span>
@@ -55,18 +58,30 @@ function ProductCard() {
           <div className={style.option}>
             <p className={style.option_name}>Sizes:</p>
             <div className={style.operations_btns}>
-              <button className={style.btn}>4.5</button>
-              <button className={style.btn}>5</button>
-              <button className={style.btn}>5.5</button>
+              {SIZES.map((size, index) => {
+                return (
+                  <button
+                    onClick={() => onClickSelectsSize(index)}
+                    key={`${index}_${size}`}
+                    className={`${style.btn}  ${
+                      selectSize === index ? style.active : ''
+                    }`}>
+                    {size}
+                  </button>
+                );
+              })}
             </div>
           </div>
-          <div className={style.desc}>
-            Sneaker in air mesh and suede goatskin.
-            Light sole with contrasting design for a versatile and modern look.
-          </div>
+          <div className={style.desc}>{description}</div>
           <div className={style.info_btns}>
-            <button className={style.info_btn}>Add to cart</button>
-            <button className={style.info_btn + ' ' + style.disabled}>Add to favorites</button>
+            <button
+            onClick={addToCart}
+              className={`${style.info_btn} ${
+                selectSize === undefined ? style.disabled : ''
+              }`}>
+              Add to cart
+            </button>
+            <button className={style.info_btn}>Add to favorites</button>
           </div>
         </div>
         <div className={style.other_info}>
@@ -80,4 +95,4 @@ function ProductCard() {
   );
 }
 
-export default ProductCard;
+export default Product;

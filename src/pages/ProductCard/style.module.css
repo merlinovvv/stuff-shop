@@ -6,6 +6,8 @@
     justify-content: space-between;
     grid-area: 1 / 2 / 2 / 3;
     gap: 30px;
+    width: 100%;
+    max-width: 950px;
 }
 
 .gallery {
@@ -27,7 +29,21 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 3px;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.images_list img{
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
+}
+
+.images_list img:hover{
+    transform: scale(0.95);
+}
+
+.images_list img:active{
+    transform: scale(1.1);
 }
 
 .image_product {
@@ -109,6 +125,7 @@
     font-size: 12px;
     line-height: 15px;
     color: #B8B8B8;
+    max-width: 390px;
 }
 
 .info_btns {
