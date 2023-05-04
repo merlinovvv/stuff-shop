@@ -1,19 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from './style.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../utils/routes';
 import LOGO from '../../img/logo.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleForm } from '../../features/user/userSlice';
+import { useGetProductsQuery } from '../../features/api/apiSlice';
+import Loading from '../Loading/Loading';
 
 function Header() {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { currentUser } = useSelector(({ user }) => user);
 
   function handleClick() {
     !currentUser ? dispatch(toggleForm(true)) : navigate(ROUTES.PROFILE);
   }
+
+  function handleSearch({ target: { value } }) {
+    setSearchValue(value);
+  }
+
+  const [searchValue, setSearchValue] = useState('');
+  const { data, isLoading } = useGetProductsQuery({ title: searchValue });
+
+  const [showSpoiler, setShowSpoiler] = useState(false);
+
+  const handleSpoilerClick = () => {
+    setShowSpoiler(!showSpoiler);
+  };
+
+  const handleInputClick = (event) => {
+    event.stopPropagation();
+    setShowSpoiler(true);
+  };
+
+  const handlePageClick = () => {
+    setShowSpoiler(false);
+  };
+
+  console.log(searchValue);
   return (
     <header className={style.header}>
       <Link to={ROUTES.HOME}>
@@ -23,8 +49,10 @@ function Header() {
       <div onClick={handleClick} href="/" className={style.profile}>
         <div className={style.profile_avatar}>
           {currentUser ? (
-            <div style={{backgroundImage: `url(${currentUser.avatar})`}} className={style.avatar} />
-            
+            <div
+              style={{ backgroundImage: `url(${currentUser.avatar})` }}
+              className={style.avatar}
+            />
           ) : (
             <svg
               width="22"
@@ -50,30 +78,58 @@ function Header() {
           {currentUser ? currentUser.name : 'Guest'}
         </p>
       </div>
-      <form className={style.search}>
-        <svg
-          width="13"
-          height="13"
-          viewBox="0 0 13 13"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M12.8416 12.0758L9.60783 8.84204C10.4886 7.76481 10.9216 6.39027 10.8173 5.00273C10.7131 3.61519 10.0795 2.3208 9.04763 1.3873C8.01577 0.453803 6.66459 -0.0473866 5.27357 -0.0126007C3.88255 0.0221852 2.55811 0.590285 1.57421 1.57419C0.5903 2.5581 0.0222005 3.88254 -0.0125854 5.27356C-0.0473713 6.66458 0.453818 8.01576 1.38732 9.04761C2.32081 10.0795 3.6152 10.7131 5.00274 10.8173C6.39029 10.9216 7.76483 10.4886 8.84205 9.60782L12.0758 12.8416C12.1791 12.9339 12.3139 12.9832 12.4524 12.9793C12.5909 12.9754 12.7227 12.9186 12.8207 12.8207C12.9187 12.7227 12.9754 12.5909 12.9793 12.4524C12.9832 12.3139 12.9339 12.1791 12.8416 12.0758ZM5.41737 9.75001C4.55987 9.75041 3.72153 9.49647 3.00838 9.02033C2.29523 8.54418 1.73933 7.86721 1.411 7.07507C1.08266 6.28293 0.996649 5.4112 1.16384 4.57016C1.33103 3.72913 1.74391 2.95657 2.35025 2.35023C2.95659 1.74389 3.72914 1.33101 4.57018 1.16382C5.41121 0.996633 6.28294 1.08265 7.07509 1.41098C7.86723 1.73931 8.5442 2.29522 9.02034 3.00836C9.49649 3.72151 9.75042 4.55986 9.75002 5.41735C9.74841 6.56595 9.29142 7.66704 8.47924 8.47922C7.66705 9.2914 6.56596 9.74839 5.41737 9.75001Z"
-            fill="#576067"
+      <div className={style.search_block} onClick={handlePageClick}>
+        <form className={style.search}>
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 13 13"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12.8416 12.0758L9.60783 8.84204C10.4886 7.76481 10.9216 6.39027 10.8173 5.00273C10.7131 3.61519 10.0795 2.3208 9.04763 1.3873C8.01577 0.453803 6.66459 -0.0473866 5.27357 -0.0126007C3.88255 0.0221852 2.55811 0.590285 1.57421 1.57419C0.5903 2.5581 0.0222005 3.88254 -0.0125854 5.27356C-0.0473713 6.66458 0.453818 8.01576 1.38732 9.04761C2.32081 10.0795 3.6152 10.7131 5.00274 10.8173C6.39029 10.9216 7.76483 10.4886 8.84205 9.60782L12.0758 12.8416C12.1791 12.9339 12.3139 12.9832 12.4524 12.9793C12.5909 12.9754 12.7227 12.9186 12.8207 12.8207C12.9187 12.7227 12.9754 12.5909 12.9793 12.4524C12.9832 12.3139 12.9339 12.1791 12.8416 12.0758ZM5.41737 9.75001C4.55987 9.75041 3.72153 9.49647 3.00838 9.02033C2.29523 8.54418 1.73933 7.86721 1.411 7.07507C1.08266 6.28293 0.996649 5.4112 1.16384 4.57016C1.33103 3.72913 1.74391 2.95657 2.35025 2.35023C2.95659 1.74389 3.72914 1.33101 4.57018 1.16382C5.41121 0.996633 6.28294 1.08265 7.07509 1.41098C7.86723 1.73931 8.5442 2.29522 9.02034 3.00836C9.49649 3.72151 9.75042 4.55986 9.75002 5.41735C9.74841 6.56595 9.29142 7.66704 8.47924 8.47922C7.66705 9.2914 6.56596 9.74839 5.41737 9.75001Z"
+              fill="#576067"
+            />
+          </svg>
+          <input
+            className={style.search_input}
+            type="search"
+            name="search"
+            id=""
+            placeholder="Search for anything..."
+            autoComplete="off"
+            onChange={handleSearch}
+            value={searchValue}
+            onClick={handleInputClick}
           />
-        </svg>
-        <input
-          className={style.search_input}
-          type="search"
-          name="search"
-          id=""
-          placeholder="Search for anything..."
-          autoComplete="off"
-          onChange={() => {}}
-          value=""
-        />
-        {false && <div className={style.spoiler_form}></div>}
-      </form>
+          {searchValue && showSpoiler && (
+            <div onClick={handleSpoilerClick} className={style.spoiler_form}>
+              {isLoading ? (
+                <Loading />
+              ) : !data.length ? (
+                <p>No result</p>
+              ) : (
+                data.map(({ title, images, id, price }, index) => {
+                  return (
+                    <Link to={`products/${id}`} className={style.spoiler_block}>
+                      <div className={style.start_block}>
+                        <img
+                          className={style.spoiler_img}
+                          src={images[0]}
+                          alt=""
+                        />
+                        <p className={style.spoiler_name}>{title}</p>
+                      </div>
+                      <p className={style.spolire_price}>{price}$</p>
+                    </Link>
+                  );
+                })
+              )}
+            </div>
+          )}
+        </form>
+      </div>
+
       <div className={style.header_btns}>
         <Link to={ROUTES.HOME} className={style.btn_link}>
           <svg

@@ -28,10 +28,6 @@ function UserRegForm({ formTypeToggle }) {
     dispatch(toggleForm(false));
   }
 
-  useEffect(() => {
-    console.log(values);
-  }, [values]);
-
   return (
     <form className={style.register_form} onSubmit={handleSubmit}>
       <input

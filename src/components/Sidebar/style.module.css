@@ -29,6 +29,9 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    max-height: 225px;
+    overflow: auto;
+    width: 100%;
 }
 
 .menu_link {
@@ -44,7 +47,7 @@
     color: #8B57C6;
 }
 
-.menu_link:hover{
+.menu_link:hover {
     color: #fff;
 }
 
@@ -62,7 +65,7 @@
     transition: all 0.2s ease 0s;
 }
 
-.help_terms_link:hover{
+.help_terms_link:hover {
     color: #fff;
 }
 

@@ -18,10 +18,7 @@ function ProductList({ title, amount, products, isLoading }) {
               <Skeleton key={index} />
             ))
           : list.map(
-              (
-                { id, images, title, category: { name: cat }, price },
-                index
-              ) => {
+              ({ id, images, title, category: { name: cat }, price }) => {
                 return (
                   <Link
                     className={style.product_block}

@@ -35,9 +35,6 @@ function Profile() {
     setValues(currentUser)
   },[currentUser])
 
- useEffect(() => {
-    console.log(values);
-  }, [values]);
 
   return (
     <div className={style.profile}>
@@ -88,7 +85,6 @@ function Profile() {
           <button type="submit" className={style.from_btn}>
             Update a account
           </button>
-          {/* <div onClick={() => formTypeToggle('login')} className={style.link}>I already have an account </div> */}
         </form>
       )}
     </div>
