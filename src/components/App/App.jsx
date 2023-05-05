@@ -25,7 +25,7 @@ function App() {
     setRegisterIsOpen(event);
   };
 
-  document.body.style.overflow = registerIsOpen ? 'hidden' : 'visible';
+  document.body.style.overflow = registerIsOpen ? 'hidden' : 'auto';
 
   const dispatch = useDispatch();
 
@@ -35,24 +35,6 @@ function App() {
   }, [dispatch]);
 
   return (
-    // <div className={style.page}>
-    //   <Registration toggleForm={toggleForm} registerIsOpen={registerIsOpen} />
-    //   <div className={style.container}>
-    //     <Header toggleForm={toggleForm} />
-    //     <div className={style.main}>
-    //       <Sidebar />
-    //       <MainContent />
-    //       {/* <ProductCard/> */}
-    //       {/* <Cart/> */}
-    //     </div>
-    //     <ProductList title={'Trending'} />
-    //     <Recommend />
-    //     <Sale />
-    //     <ProductList title={'Less than 100$'} />
-    //     {/* <ProductCatalog/> */}
-    //     <Footer />
-    //   </div>
-    // </div>
     <div className={style.app}>
       <Registration toggleForm={toggleForm} registerIsOpen={registerIsOpen} />
       <div className={style.container}>

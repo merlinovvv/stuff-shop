@@ -1,29 +1,29 @@
 import React from 'react';
 import style from './style.module.css';
 
-function CartProduct() {
+function CartProduct({ images, title, price, quantity, category: {name}, changeQuantity, item, removeFromCart }) {
   return (
     <div className={style.cart_product}>
       <div className={style.left_info}>
-        <img className={style.product_img} src="img/product_img.jpg" alt="" />
+        <img className={style.product_img} src={images} alt={title} />
         <div className={style.product_text}>
-          <p className={style.product_name}>Nike ZoomX 2023</p>
-          <p className={style.product_category}>Sneakers</p>
+          <p className={style.product_name}>{title}</p>
+          <p className={style.product_category}>{name}</p>
         </div>
       </div>
-      <p className={style.product_price}>99$</p>
+      <p className={style.product_price}>{price}$</p>
       <div className={style.operations}>
-        <button className={`${style.operation_btn} ${style.minus}`}>
+        <button onClick={() => changeQuantity(item, Math.max(1, quantity - 1))} className={`${style.operation_btn} ${style.minus}`}>
           <span className={style.operations_dec}></span>
         </button>
-        <p className={style.operations_count}>1</p>
-        <button className={`${style.operation_btn} `}>
+        <p className={style.operations_count}>{quantity}</p>
+        <button onClick={() => changeQuantity(item, Math.max(1, quantity + 1))} className={`${style.operation_btn} `}>
           <span className={style.operations_inc}></span>
         </button>
       </div>
       <div className={style.right_info}>
-        <p className={style.total_price}>99$</p>
-        <span className={style.delete_product}></span>
+        <p className={style.total_price}>{price * quantity}$</p>
+        <span onClick={() => removeFromCart(item)} className={style.delete_product}></span>
       </div>
     </div>
   );

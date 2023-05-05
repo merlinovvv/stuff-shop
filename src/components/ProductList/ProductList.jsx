@@ -6,7 +6,7 @@ import { ROUTES } from '../../utils/routes';
 import { useSelector } from 'react-redux';
 import Skeleton from '../Skeleton/Skeleton';
 
-function ProductList({ title, amount, products, isLoading }) {
+function ProductList({ title, amount, products, isLoading, seeMore, isEnd }) {
   const list = products.filter((_, i) => i < amount);
 
   return (
@@ -22,7 +22,7 @@ function ProductList({ title, amount, products, isLoading }) {
                 return (
                   <Link
                     className={style.product_block}
-                    key={id}
+                    key={`${id}_${title}`}
                     to={`/products/${id}`}>
                     <div
                       className={style.product_img}
@@ -50,7 +50,16 @@ function ProductList({ title, amount, products, isLoading }) {
               }
             )}
       </div>
-      <button className={style.see_more_btn}>See more</button>
+
+      {isEnd ? (
+        <button onClick={seeMore} hidden className={style.see_more_btn}>
+          See more
+        </button>
+      ) : (
+        <button onClick={seeMore} className={style.see_more_btn}>
+          See more
+        </button>
+      )}
     </div>
   );
 }

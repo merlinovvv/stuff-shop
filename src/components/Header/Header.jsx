@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import style from './style.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../utils/routes';
@@ -39,7 +39,13 @@ function Header() {
     setShowSpoiler(false);
   };
 
-  console.log(searchValue);
+  const [totalCount, setTotalCount] = useState(0);
+  const { cart } = useSelector(({ user }) => user);
+  useEffect(() => {
+    const totalCount = cart.reduce((total, { quantity }) => total + quantity, 0);
+    setTotalCount(totalCount);
+  }, [cart]);
+
   return (
     <header className={style.header}>
       <Link to={ROUTES.HOME}>
@@ -78,7 +84,7 @@ function Header() {
           {currentUser ? currentUser.name : 'Guest'}
         </p>
       </div>
-      <div className={style.search_block} onClick={handlePageClick}>
+      <div className={style.search_block}>
         <form className={style.search}>
           <svg
             width="13"
@@ -111,7 +117,11 @@ function Header() {
               ) : (
                 data.map(({ title, images, id, price }, index) => {
                   return (
-                    <Link to={`products/${id}`} className={style.spoiler_block}>
+                    <Link
+                      onClick={() => setSearchValue('')}
+                      key={`${id}_${title}`}
+                      to={`products/${id}`}
+                      className={style.spoiler_block}>
                       <div className={style.start_block}>
                         <img
                           className={style.spoiler_img}
@@ -146,7 +156,6 @@ function Header() {
               strokeLinejoin="round"
             />
           </svg>
-          <span className={style.count}>3</span>
         </Link>
         <Link to={ROUTES.CART} className={style.btn_link}>
           <svg
@@ -161,7 +170,7 @@ function Header() {
               fill="#B8B8B8"
             />
           </svg>
-          <span className={style.count}>1</span>
+          {totalCount > 0 && <span className={style.count}>{totalCount}</span>}
         </Link>
       </div>
     </header>
