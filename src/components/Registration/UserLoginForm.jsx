@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import style from './style.module.css';
 import { loginUser, toggleForm } from '../../features/user/userSlice';
 import { useDispatch } from 'react-redux';

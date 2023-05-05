@@ -4,19 +4,7 @@ import { getCategories } from '../../features/categories/categoriesSlice';
 import { getProducts } from '../../features/products/productsSlice';
 import style from './style.module.css';
 import AppRoutes from '../Routes/Routes';
-import {
-  Header,
-  Sidebar,
-  MainContent,
-  ProductList,
-  Categories,
-  Sale,
-  Footer,
-  ProductCard,
-  Registration,
-  ProductCatalog,
-  Cart,
-} from '../index';
+import { Header, Sidebar, Footer, Registration } from '../index';
 
 function App() {
   const [registerIsOpen, setRegisterIsOpen] = useState(false);

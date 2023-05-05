@@ -1,9 +1,6 @@
 import React from 'react';
 import style from './style.module.css';
-import ProductLink from '../ProductLink/ProductLink';
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../../utils/routes';
-import { useSelector } from 'react-redux';
 import Skeleton from '../Skeleton/Skeleton';
 
 function ProductList({ title, amount, products, isLoading, seeMore, isEnd }) {

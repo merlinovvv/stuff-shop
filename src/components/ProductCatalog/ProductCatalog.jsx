@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import style from './style.module.css';
-import ProductLink from '../ProductLink/ProductLink';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useGetProductsQuery } from '../../features/api/apiSlice';
 import Skeleton from '../Skeleton/Skeleton';
 import ProductList from '../ProductList/ProductList';

@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import { useNavigate, useParams } from 'react-router-dom';
 import { useGetProductQuery } from '../../features/api/apiSlice';
 import { ROUTES } from '../../utils/routes';
-import Loading from '../../components/Loading/Loading';
 import Product from './Product';
 import SkeletonCard from '../../components/Skeleton/SkeletonCard';
 import { ProductList } from '../../components';

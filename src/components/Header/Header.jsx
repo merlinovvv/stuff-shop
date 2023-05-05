@@ -35,10 +35,6 @@ function Header() {
     setShowSpoiler(true);
   };
 
-  const handlePageClick = () => {
-    setShowSpoiler(false);
-  };
-
   const [totalCount, setTotalCount] = useState(0);
   const { cart } = useSelector(({ user }) => user);
   useEffect(() => {

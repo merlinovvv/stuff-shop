@@ -1,7 +1,6 @@
 import React from 'react';
 import style from './style.module.css';
 import { Link } from 'react-router-dom';
-import Loading from '../Loading/Loading';
 import Skeleton from '../Skeleton/Skeleton';
 
 function Categories({ categories, amount, isLoading }) {
@@ -15,7 +14,7 @@ function Categories({ categories, amount, isLoading }) {
           ? Array.from({ length: amount }, (_, index) => (
               <Skeleton key={index} />
             ))
-          : list.map(({ id, name, image }, index) => {
+          : list.map(({ id, name, image }) => {
               return (
                 <Link to={`/categories/${id}`} key={id} className={style.block}>
                   <div
